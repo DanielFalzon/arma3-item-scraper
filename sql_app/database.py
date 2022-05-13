@@ -10,8 +10,8 @@ engine = create_engine(
     SQLALCHEMY_DATABASE_URL
 )
 
-#SessionLocal stores the class for which instances will represent database sessions
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+#session_maker stores the class for which instances will represent database sessions
+session_maker = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 #Base class from which models will inherit
 Base = declarative_base()
