@@ -20,27 +20,29 @@ class Category(Base):
 
     children = relationship("Category", backref=backref('parent', remote_side=[id]))
 
-    def dump(self):
-        children = ""
-        parent = ""
+#     def dump(self):
+#         children = ""
+#         parent = ""
 
-        if len(self.children) > 0:
-            children = "\nChildren:"
-            for child in self.children:
-                children += child.name
+#         if len(self.children) > 0:
+#             children = "\nChildren:"
+#             for child in self.children:
+#                 children += child.name
 
-        if (not self.parent is None):
-            parent = f"\nParent:{self.parent.name}"
+#         if (not self.parent is None):
+#             parent = f"\nParent:{self.parent.name}"
 
-        return( 
-            f"Name:{self.name}{children}{parent}"
-        )
+#         return( 
+#             f"Name:{self.name}{children}{parent}"
+#         )
 
-with session_maker() as session:
-    category_records = session.query(Category).all()
-    for category in category_records:
-        print(category.dump())
-        print("--------")
+# with session_maker() as session:
+#     category_records = session.query(Category).all()
+#     for category in category_records:
+#         print(category.dump())
+#         print("--------")
+
+
 
 # def create_categories():
 #     with session_maker() as session:
